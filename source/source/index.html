@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kendo Dream Car Shopper</title>
+
+	<!-- CSS -->
+	<link href="content/kendo.common.min.css" rel="stylesheet"/>
+	<link href="content/kendo.mobile.all.min.css" rel="stylesheet"/>
+	<link href="content/site.mobile.css" rel="stylesheet"/>
+	
+	<!-- Scripts -->
+	<script src="scripts/jquery-1.8.2.min.js"></script>
+	<script src="scripts/kendo.mobile.min.js"></script>
+	<script src="scripts/app.js"></script>
+	
+
+</head>
+<body>
+
+	<!-- Landing -->
+	<div id="mobileLanding" data-role="view" data-title="Dream Car Shopper">
+	
+		<div class="logo"></div>
+		<ul  data-role="listview" data-style="inset" data-type="group">
+		    <li>
+		        <ul id="mainOptions">
+		            <li data-icon="action"><a href="#models">Find Your Dream Car</a></li>
+		            <li data-icon="about"><a href="#about">About The Shop</a></li>
+		        </ul>
+		    </li>
+		</ul>
+				
+	</div>
+
+
+	<!-- Models -->
+	<div id="models" data-role="view" data-title="Our Models" data-layout="mobileLayout" data-init="loadModels">
+
+		<ul id="modelsList"></ul>
+
+	</div>
+
+	<!-- Model Details -->
+	<div data-role="view" id="modelDetail" data-layout="mobileLayout" data-title="Specs" data-show="detailShow">
+	    <ul data-role="listview" data-style="inset">
+	        <li style="text-align: center;">
+	            <span id="modelName"></span>
+	        </li>
+	    </ul>
+	    <ul data-role="listview" data-style="inset">
+	        <li>
+	            <div><span class="label">Base Price: </span></div>
+	            <span id="modelPrice" class="value"></span>
+	        </li>
+	        <li>
+	            <div><span class="label">Engine: </span></div>
+	            <span id="modelEngine" class="value"></span>
+	        </li>
+	        <li>
+	            <div><span class="label">Break Horsepower: </span></div>
+	            <span id="modelHorsepower" class="value"></span>
+	        </li>
+	        <li>
+	            <div><span class="label">0 - 60: </span></div>
+	            <span id="modelZeroToSixty" class="value"></span>
+	        </li>
+	        <li>
+	            <div><span class="label">Top Speed: </span></div>
+	            <span id="modelTopSpeed" class="value"></span>
+	        </li>
+	    </ul>
+	    <ul data-role="listview" data-style="inset">
+	        <li>
+	            <span id="modelDescription"></span>
+	        </li>
+	    </ul>
+	</div>
+	
+
+
+	<!-- Shared Layouts -->
+	<div data-role="layout" data-id="mobileLayout">
+	    <header data-role="header">
+	        <div data-role="navbar">
+	            <a data-align="left" data-role="backbutton">Back</a>
+	            <span data-role="view-title"></span>
+	        </div>
+	    </header>
+	</div>
+	
+
+	<!-- Custom Templates -->
+	<script type="text/x-kendo-template" id="modelsListHeaderTemplate">
+	  	<img class="logo" src="${value}" />
+	</script>
+	
+	<script type="text/x-kendo-template" id="modelsListItemTemplate">
+	 	<img class="photo" src="${DefaultImageUrl}" />
+	  	<h3 class="title">${Year} ${Name}</h3>
+	  	<p class="info">${kendo.toString(BasePrice,"c0")}</p>
+	  	<a data-role="button" class="details">Details</a>
+	</script>
+	
+
+</body>
+</html>
